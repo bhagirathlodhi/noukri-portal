@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
+  get 'users/index'
+  get 'users/new'
   root "jobs#index"
-  get 'jobs/new'
-  get 'jobs/edit'
-  get 'jobs/destroy'
+  get '/new_job', to: 'jobs#new'
+  get '/edit_job', to: 'jobs#edit'
+  delete '/destroy_job', to: 'jobs#destroy'
   
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  
 end

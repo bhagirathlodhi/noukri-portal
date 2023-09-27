@@ -1,2 +1,15 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+
+/* navbar */
+
+#formHeading {
+  background:#63cd9c;
+  margin:-20px;
+  border-radius:4px 4px 0px 0px
+  }
+
+#navbarDropdownMenuLink{
+  color: lightcyan;
+}
