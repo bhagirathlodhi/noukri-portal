@@ -8,9 +8,10 @@ class JobsController < ApplicationController
   end
   
   def create
-    @job  = Job.new(job_params)
+    @user = User.find_by(id: current_user.id)
+    @job = @user.jobs.build(job_params)
     if @job.save
-      redirect_to root_path, notice: "Post created"
+      redirect_to jobs_path
     else
       render :new
     end

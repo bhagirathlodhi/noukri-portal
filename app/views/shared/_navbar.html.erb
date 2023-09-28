@@ -10,6 +10,7 @@
           <a class="nav-link active" aria-current="page" href="<%= root_path %>">Home</a>
         </li>
         <% if user_signed_in? %>
+        <li class="nav-item"><a class="nav-link active" href="<%= jobs_path %>">jobs</a></li>
         <li class="nav-item"><a class="nav-link active" href="#">Applicants</a></li>
         <li class="nav-item"><a class="nav-link active" href=<%= new_job_path %>>Post A Job</a></li>
           <li class="nav-item dropdown">

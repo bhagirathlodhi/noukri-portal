@@ -1,10 +1,21 @@
-<h1>Job</h1>
-
-<ul>
-  <% @jobs.each do |job| %>
-    <li>
-        <%= job.title %>
-      </a>
-    </li>
-  <% end %>
-</ul>
+<div class="columns pt4 pb7">
+  <div class="column is-7 is-offset-1">
+      <% @jobs.each do |job| %>
+        <h1>Job Details</h1>
+        <p><strong>Title: </strong> <%= job.title %></p>
+        <p><strong>experience: </strong><%= job.experience %></p>
+        <p><strong>salary: </strong><%= job.salary %></p>
+        <p><strong>location: </strong><%= job.location %></p>
+        <p><strong>Skills: </strong><%= job.skills %></p>
+        <p><strong>Description: </strong><%= job.description %></p>
+        <ul class="pv3">
+            <li class="inline-block">
+              <%= link_to 'View', job, class: 'button is-small is-link is-outlined' %></li>
+            <li class="inline-block">
+              <%= link_to 'Edit', edit_job_path(job), class: 'button is-small is-link is-outlined' %></li>
+            <li class="inline-block">
+              <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-small is-link is-outlined' %></li>
+          </ul>
+      <% end %>
+    </div>
+  </div>

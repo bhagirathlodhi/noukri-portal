@@ -1,3 +1,9 @@
-<div class="container">
-  <%= render "form", student: @student %>
-</div>
+
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <h1 class="title is-3">new Job</h1>
+        <%= render 'form', job: @job %>
+      </div>
+    </div>
+  </div>
