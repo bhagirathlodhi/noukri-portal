@@ -52,8 +52,7 @@ Rails.application.configure do
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
-  
-  config.action_mailer.delivery_method = :letter_opener_web
+
 
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
@@ -69,5 +68,9 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
+  config.action_mailer.delivery_method = :letter_opener_web
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+
 end
