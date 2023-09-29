@@ -1,5 +1,6 @@
 <div class="columns pt4 pb7">
   <div class="column is-7 is-offset-1">
+    <% if current_user.admin? == false %>
       <% @jobs.each do |job| %>
         <h1>Job Details</h1>
         <p><strong>Title: </strong> <%= job.title %></p>
@@ -16,6 +17,8 @@
             <li class="inline-block">
               <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-small is-link is-outlined' %></li>
           </ul>
+          <%= link_to 'Apply', new_request_path(job) %>
       <% end %>
-    </div>
+    <% end %>
   </div>
+</div>

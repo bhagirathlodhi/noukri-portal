@@ -19,7 +19,14 @@ class JobsController < ApplicationController
   end
 
   def edit
-
+    @job = Job.find(params[:id])
+  end
+  def def update
+    if @job.update(job_params)
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

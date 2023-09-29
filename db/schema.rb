@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_28_103204) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_29_134053) do
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.string "experience"
@@ -22,6 +22,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_103204) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string "name"
+    t.string "age"
+    t.string "address"
+    t.string "currentsalary"
+    t.string "position"
+    t.date "yop"
+    t.integer "job_id", null: false
+    t.string "contact_number"
+    t.string "email"
+    t.index ["job_id"], name: "index_requests_on_job_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -47,6 +60,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_103204) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.string "name"
+    t.date "dob"
+    t.boolean "admin"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -61,4 +77,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_103204) do
   end
 
   add_foreign_key "jobs", "users"
+  add_foreign_key "requests", "jobs"
 end

@@ -78,3 +78,5 @@ end
 
 gem "devise", "~> 4.9"
 # gem 'letter_opener_web', '~> 2.0'
+
+gem "followability", "~> 1.1"
