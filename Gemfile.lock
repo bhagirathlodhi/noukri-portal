@@ -73,6 +73,7 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    cancancan (3.5.0)
     capybara (3.39.2)
       addressable
       matrix
@@ -100,6 +101,10 @@ GEM
     followability (1.1.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    haml (6.2.0)
+      temple (>= 0.8.2)
+      thor
+      tilt
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -185,6 +190,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    ransack (4.0.0)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     rdoc (6.5.0)
       psych (>= 4.0.0)
     regexp_parser (2.8.1)
@@ -211,7 +220,9 @@ GEM
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
     stringio (3.0.8)
+    temple (0.10.2)
     thor (1.2.2)
+    tilt (2.3.0)
     timeout (0.4.0)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -239,16 +250,19 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  cancancan
   capybara
   cssbundling-rails
   debug
   devise (~> 4.9)
   followability (~> 1.1)
+  haml (~> 6.2)
   jbuilder
   jsbundling-rails
   letter_opener_web (~> 2.0)
   puma (~> 5.0)
   rails (~> 7.0.8)
+  ransack (~> 4.0)
   rolify
   selenium-webdriver
   sprockets-rails

@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   def index
-    @jobs  = Job.all
+    @q = Job.ransack(params[:q])
+    @jobs = @q.result(distinct: true)
   end
 
   def new
@@ -15,12 +16,16 @@ class JobsController < ApplicationController
     else
       render :new
     end
-    
+  end
+
+  def show
+    @job = Job.find(params[:id])
   end
 
   def edit
     @job = Job.find(params[:id])
   end
+
   def def update
     if @job.update(job_params)
       redirect_to root_path
@@ -30,6 +35,15 @@ class JobsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def search
+    if params[:search].blank?
+      redirect_to root_path
+    else 
+      @parammeter = params[:search].downcase
+      @result  = Job.all.where("lower(title) LIKE :search", search: "%#{@parameter}")
+    end
   end
 
   private

@@ -1,24 +1,54 @@
-<div class="columns pt4 pb7">
-  <div class="column is-7 is-offset-1">
-    <% if current_user.admin? == false %>
-      <% @jobs.each do |job| %>
-        <h1>Job Details</h1>
-        <p><strong>Title: </strong> <%= job.title %></p>
-        <p><strong>experience: </strong><%= job.experience %></p>
-        <p><strong>salary: </strong><%= job.salary %></p>
-        <p><strong>location: </strong><%= job.location %></p>
-        <p><strong>Skills: </strong><%= job.skills %></p>
-        <p><strong>Description: </strong><%= job.description %></p>
-        <ul class="pv3">
-            <li class="inline-block">
-              <%= link_to 'View', job, class: 'button is-small is-link is-outlined' %></li>
-            <li class="inline-block">
-              <%= link_to 'Edit', edit_job_path(job), class: 'button is-small is-link is-outlined' %></li>
-            <li class="inline-block">
-              <%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-small is-link is-outlined' %></li>
-          </ul>
-          <%= link_to 'Apply', new_request_path(job) %>
+<div class="d-flex align-items-center justify-content-center w-100">
+  <div class="card rounded-0 shadow mt-5 mb-3">
+  <h3 class="text-center">Search Job </h3>
+    <div class="card-body">
+        <%= search_form_for @q, url: :jobs do |form| %>
+          <div class="search-form input-group">
+            <%= form.label :salary %>
+            <%= form.text_field :salary_cont, class: "form-control" %>
+          </div>
+
+          <div class="search-form input-group mt-3">
+            <%= form.label :title %>
+            <%= form.text_field :title_cont, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.submit class:"btn btn-success btn-lg mt-4" %>
+          </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
+
+<div class="text-center mb-3">
+  <h3>Jobs openning</h3>
+  </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex flex-column flex-lg-row">
+          <div class="row flex-fill">
+            <% @jobs.each do |job| %>
+
+              <div class="col-sm-5">
+                <%= link_to job.title , job_path(job) %>
+              </div>
+
+              <div class="col-sm-4 py-2">
+                <span class="badge bg-secondary"><%= job.skills %></span>
+                <span class="badge bg-secondary">salary--<%= job.salary %></span>
+              </div>
+
+              <div class="col-sm-3 text-lg-end">
+                <a href="<%= new_job_request_path(job) %>" class="btn btn-primary stretched-link">Apply</a>
+              </div>
+
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+

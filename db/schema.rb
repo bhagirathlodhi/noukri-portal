@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_29_134053) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_03_103542) do
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.string "experience"
@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_29_134053) do
     t.integer "job_id", null: false
     t.string "contact_number"
     t.string "email"
+    t.integer "status", default: 0
     t.index ["job_id"], name: "index_requests_on_job_id"
   end
 

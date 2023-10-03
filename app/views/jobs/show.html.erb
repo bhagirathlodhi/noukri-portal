@@ -1,0 +1,22 @@
+<div class="d-flex align-items-center justify-content-center vh-100">
+  <div class="card rounded-0 shadow mt-5 mb-5">
+    <div class="card-body">
+      <div class="container">
+        <h1>Job Details</h1>
+        <p><strong>Title: </strong> <%= @job.title %></p>
+        <p><strong>experience: </strong><%= @job.experience %></p>
+        <p><strong>salary: </strong><%= @job.salary %></p>
+        <p><strong>location: </strong><%= @job.location %></p>
+        <p><strong>Skills: </strong><%= @job.skills %></p>
+        <p><strong>Description: </strong><%= @job.description %></p>
+
+        <%= link_to 'Apply', new_job_request_path(@job) %>
+        <% if current_user.try(:admin?) %>
+          <li class="inline-block">
+            <%= link_to 'Edit', edit_job_path(@job), class: 'button is-small is-link is-outlined' %>
+          </li>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -75,8 +75,10 @@ group :test do
   gem "selenium-webdriver"
 
 end
-
+gem 'haml', '~> 6.2'
 gem "devise", "~> 4.9"
 # gem 'letter_opener_web', '~> 2.0'
 
 gem "followability", "~> 1.1"
+gem 'ransack', '~> 4.0'
+gem 'cancancan'
