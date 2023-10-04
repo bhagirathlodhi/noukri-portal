@@ -9,8 +9,8 @@ recruiter at a company event, or it may have been submitted by an external recru
 </p>
 
 
-<% @abject.attributes.each | att_key, att_value|%>
-<p><strong> <%= att_key%></strong><%= att_value%></p>
+<% @object.attributes.each do | att_key, att_value|%>
+<p><strong> <%= att_key%></strong>-<%= att_value%></p>
 <% end %>
 
 <h3> now the <%= @object.class.to_s %> has total of <%= @object_count %> records</h3>

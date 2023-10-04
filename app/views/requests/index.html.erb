@@ -1,8 +1,18 @@
 
-<div class="container">
-  <h3> The are Applied </h3>
-  <% @requests.each do |rq| %>
-    <p><strong>name: </strong> <%= rq.name %></p>
-  <% end %>
+  <table class="table table-bordered">
+      <tr>
+        <th>applicants</th>
+        <th>Email id</th>
+        <th>contact number</th>
+      </tr>
+    <tbody>
+      <% @requests.each do |rq| %>
+        <tr>
+          <td><%= rq.name%></td>
+          <td><%= rq.email%></td>
+          <td><%= rq.contact_number%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-

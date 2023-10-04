@@ -31,3 +31,18 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
+
+/* error */
+error_explanation {
+  color: red;
+  ul {
+  color: red;
+  margin: 0 0 30px 0;
+  }
+  }
+  .field_with_errors {
+ 
+  .form-control {
+  color: red;
+  }
+  }

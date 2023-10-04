@@ -1,6 +1,6 @@
 class Job < ApplicationRecord
   belongs_to :user
-  has_many :requests
+  has_many :requests, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :salary, presence: true, length: { maximum: 12 }

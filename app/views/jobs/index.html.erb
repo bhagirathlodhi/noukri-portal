@@ -1,5 +1,4 @@
-<div class="d-flex align-items-center justify-content-center w-100">
-  <div class="card rounded-0 shadow mt-5 mb-3">
+
   <h3 class="text-center">Search Job </h3>
     <div class="card-body">
         <%= search_form_for @q, url: :jobs do |form| %>
@@ -14,41 +13,40 @@
           </div>
 
           <div class="form-group">
-            <%= form.submit class:"btn btn-success btn-lg mt-4" %>
+            <%= form.submit class:"btn btn-success btn-lg mt-4 " %>
           </div>
       <% end %>
     </div>
-  </div>
-</div>
-
+  
 <div class="text-center mb-3">
   <h3>Jobs openning</h3>
-  </div>
-    <div class="card mb-3">
-      <div class="card-body">
-        <div class="d-flex flex-column flex-lg-row">
-          <div class="row flex-fill">
-            <% @jobs.each do |job| %>
+</div>
+<% @jobs.each do |job| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <div class="d-flex flex-column flex-lg-row">
+        <div class="row flex-fill">
+            <div class="col-sm-5">
+              <%= link_to job.title , job_path(job) %>
+            </div>
 
-              <div class="col-sm-5">
-                <%= link_to job.title , job_path(job) %>
-              </div>
+            <div class="col-sm-4 py-2">
+              <span class="badge bg-secondary"><%= job.skills %></span>
+              <span class="badge bg-secondary">salary--<%= job.salary %></span>
+              <span class="badge bg-secondary">number of vacancy--<%= job.vacancy %></span>
+            </div>
 
-              <div class="col-sm-4 py-2">
-                <span class="badge bg-secondary"><%= job.skills %></span>
-                <span class="badge bg-secondary">salary--<%= job.salary %></span>
-              </div>
-
-              <div class="col-sm-3 text-lg-end">
-                <a href="<%= new_job_request_path(job) %>" class="btn btn-primary stretched-link">Apply</a>
-              </div>
-
-            <% end %>
+            <div class="col-sm-3 text-lg-end">
+              <a href="<%= new_job_request_path(job) %>" class="btn btn-primary stretched-link">Apply</a>
+            </div>
           </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
+
+
 
   
 

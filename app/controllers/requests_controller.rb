@@ -13,31 +13,48 @@ class RequestsController < ApplicationController
 
   def create
     @job = Job.find_by(id: params[:job_id])
-    @request = @job.requests.build(request_params)
+    @request = @job.requests.create(request_params)
     if @request.save
-      #SendMailMailer.apply_notification(@request).deliver_now
+      SendMailMailer.apply_notification(@request).deliver_now
       flash[:success] = "Applied Successfully"
       redirect_to root_path 
     end
   end
+  def show
+    @request = Request.find(params[:id])
+  end
+
+  def pending
+    @user = @request.users.find(params[:id])
+    @applicant.update(status: 'Pending')
+    redirect_to application_applicants_path(@application)
+  end
 
   def accept
-    @request.update(status: 'accepted')
-    redirect_to @request.job, notice: 'Application accepted.'
+    @applicant = @application.applicants.find(params[:id])
+    @applicant.update(status: 'Accepted')
+    redirect_to application_applicants_path(@application)
   end
 
   def reject
-    @request.update(status: 'rejected')
-    redirect_to @request.job, notice: 'Application rejected.'
+    @applicant = @application.applicants.find(params[:id])
+    @applicant.update(status: 'Rejected')
+    redirect_to application_applicants_path(@application)
   end
+
 
   private
 
+  def has_applied?
+    if Job.where(user_id: :current_user.id, job_id: params[:job_id]).any?
+      redirect_to :index, alert: "You have already applied"
+    end
+  end
   def set_request
     @request = Request.find(params[:id])
   end
 
   def request_params
-    params.require(:request).permit(:name, :age, :address, :currentsalary, :position, :yop, :contact_number, :email)
+    params.require(:request).permit(:name, :age, :address, :currentsalary, :position, :yop, :contact_number, :email, :status)
   end
 end

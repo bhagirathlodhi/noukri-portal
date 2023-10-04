@@ -37,18 +37,16 @@ class JobsController < ApplicationController
   def destroy
   end
 
-  def search
-    if params[:search].blank?
-      redirect_to root_path
-    else 
-      @parammeter = params[:search].downcase
-      @result  = Job.all.where("lower(title) LIKE :search", search: "%#{@parameter}")
+  
+  private
+
+  def check_admin
+    unless current_user.admin?
+      redirect_to root_path, alert: 'You are not authorized to perform this action.'
     end
   end
 
-  private
-
   def job_params
-    params.require(:job).permit(:title, :experience, :salary, :location, :skills, :description)
+    params.require(:job).permit(:title, :experience, :salary, :location, :skills, :description, :vacancy)
   end
 end
