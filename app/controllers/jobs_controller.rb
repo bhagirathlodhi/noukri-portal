@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+  
+
   def index
     @q = Job.ransack(params[:q])
     @jobs = @q.result(distinct: true)
@@ -37,9 +39,9 @@ class JobsController < ApplicationController
   def destroy
   end
 
-  
   private
 
+  
   def check_admin
     unless current_user.admin?
       redirect_to root_path, alert: 'You are not authorized to perform this action.'

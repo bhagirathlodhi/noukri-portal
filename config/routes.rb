@@ -13,9 +13,9 @@ Rails.application.routes.draw do
 
   resources :jobs do
     resources :requests do
-      post 'accept'
-      post 'reject'
-      post 'pending'
+      get 'accept'
+      get 'reject'
+      get 'pending'
     end
   end
 

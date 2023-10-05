@@ -31,17 +31,28 @@ class RequestsController < ApplicationController
   end
 
   def accept
-    @applicant = @application.applicants.find(params[:id])
-    @applicant.update(status: 'Accepted')
-    redirect_to application_applicants_path(@application)
+    @job = Job.find_by(id: params[:job_id])
+    @request = @job.requests.find(params[:request_id])
+    if @request.status != "accepted" && @request.update(status: :accepted)
+      flash[:alert] = "has been Accepted."
+      redirect_to request.referrer
+      SendMailMailer.confirm_notification(@request).deliver_now
+    else
+      redirect_to request.referrer, notice: " already Accepted"
+    end
   end
 
   def reject
-    @applicant = @application.applicants.find(params[:id])
-    @applicant.update(status: 'Rejected')
-    redirect_to application_applicants_path(@application)
+    @job = Job.find_by(id: params[:job_id])
+    @request = @job.requests.find(params[:request_id])
+    if @request.status != "rejected" && @request.update(status: :rejected)
+      flash[:alert] = "Application has been rejected."
+      redirect_to request.referrer
+      SendMailMailer.reject_notification(@request).deliver_now
+    else
+      redirect_to request.referrer, notice: "Application already rejected"
+    end
   end
-
 
   private
 

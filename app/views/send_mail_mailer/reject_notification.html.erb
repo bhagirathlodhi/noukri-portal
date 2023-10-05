@@ -1,0 +1,22 @@
+<h1>Hello <%= @object.name %></h1>
+
+<p>
+
+Thank you for your interest in the position of Applications Developer-178996. We know it takes time and energy to apply, so we appreciate you considering us.
+
+Unfortunately, for this role, your skills and experience are not the right fit, but I hope we have the opportunity to connect again in the future.
+
+Note: This email is only related to the Job requisition indicated above. If you are already in touch with the Oracle Hiring team for other role(s) apart from this role, rest assured this rejection doesn’t impact your progress on those role(s).
+
+Below Your Application Details
+</p>
+
+
+<% @object.attributes.each do | att_key, att_value|%>
+<p><strong> <%= att_key%></strong>-<%= att_value%></p>
+<% end %>
+
+<h3> now the <%= @object.class.to_s %> has total of <%= @object_count %> records</h3>
+
+<h4> Thank You </h4>
+<h4> Bestpeers HR team </h4>

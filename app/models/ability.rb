@@ -8,7 +8,7 @@ class Ability
       can :read, User 
     # Admins:
       return unless user.admin?
-        can :manage, :all
+        can :manage, :all, user
   end
 
     # Define abilities for the user here. For example:

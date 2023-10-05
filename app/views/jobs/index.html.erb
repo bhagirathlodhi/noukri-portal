@@ -1,22 +1,22 @@
 
-  <h3 class="text-center">Search Job </h3>
-    <div class="card-body">
-        <%= search_form_for @q, url: :jobs do |form| %>
-          <div class="search-form input-group">
-            <%= form.label :salary %>
-            <%= form.text_field :salary_cont, class: "form-control" %>
-          </div>
+<h3 class="text-center">Search Job </h3>
+<div class="card-body">
+    <%= search_form_for @q, url: :jobs do |form| %>
+      <div class="lable">
+        <%= form.label :salary %>
+        <%= form.text_field :salary_cont, class: "form-control" %>
+      </div>
 
-          <div class="search-form input-group mt-3">
-            <%= form.label :title %>
-            <%= form.text_field :title_cont, class: "form-control" %>
-          </div>
+      <div class="lable">
+        <%= form.label :title %>
+        <%= form.text_field :title_cont, class: "form-control" %>
+      </div>
 
-          <div class="form-group">
-            <%= form.submit class:"btn btn-success btn-lg mt-4 " %>
-          </div>
-      <% end %>
-    </div>
+      <div class="form-group">
+        <%= form.submit class:"btn btn-success btn-lg mt-4" %>
+      </div>
+  <% end %>
+</div>
   
 <div class="text-center mb-3">
   <h3>Jobs openning</h3>
@@ -35,7 +35,6 @@
               <span class="badge bg-secondary">salary--<%= job.salary %></span>
               <span class="badge bg-secondary">number of vacancy--<%= job.vacancy %></span>
             </div>
-
             <div class="col-sm-3 text-lg-end">
               <a href="<%= new_job_request_path(job) %>" class="btn btn-primary stretched-link">Apply</a>
             </div>
@@ -45,6 +44,8 @@
     </div>
   </div>
 <% end %>
+
+
 
 
 

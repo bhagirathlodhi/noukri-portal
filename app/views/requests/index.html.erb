@@ -1,18 +1,40 @@
 
-  <table class="table table-bordered">
+<% if @requests.any? %>
+  <h3>All Application</h3>
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th>Applicants Name</th>
+      <th>Email</th>
+      <th>Mobile Number</th>
+      <th>Address</th>
+      <th>Current salary</th>
+      <th>Age</th>
+      <th>Status</th>
+    </tr>
+    <% @requests.each do |request| %>
       <tr>
-        <th>applicants</th>
-        <th>Email id</th>
-        <th>contact number</th>
+        <td><%= request.name %></td>
+        <td><%= request.email %></td>
+        <td><%= request.contact_number %></td>
+        <td><%= request.address %></td>
+        <td><%= request.currentsalary%></td>
+        <td><%= request.age %></td>
+        <td><%= request.status %></td>
+        <td>
+        <% if current_user.try(:admin?) %>
+        <%= link_to 'Details', job_request_path(request.job_id, request), class: "btn btn-info" %>
+          <%if request.status != "Rejected" && request.status != "Accept"%>
+            <%= link_to "Accept", job_request_accept_path(request.job_id, request), class: "btn btn-success", data: { confirm: "Are you sure you want to Accept this Application?" } %>
+            <%= link_to "Reject", job_request_reject_path(request.job_id, request), method: :put, class: "btn btn-warning", data: { confirm: "Are you sure you want to reject this Application?" } %>
+          <%end%>
+        <% end %>
+        </td>
       </tr>
-    <tbody>
-      <% @requests.each do |rq| %>
-        <tr>
-          <td><%= rq.name%></td>
-          <td><%= rq.email%></td>
-          <td><%= rq.contact_number%></td>
-        </tr>
-      <% end %>
-    </tbody>
+    <% end %>
   </table>
-</div>
+  <div class="d-grid gap-2 col-2 mx-auto">
+    <%=link_to "Back", root_path ,class:"btn btn-primary"%>
+  </div>
+  <% else %>
+    <h3>Application Not found </h3>
+  <% end %>     

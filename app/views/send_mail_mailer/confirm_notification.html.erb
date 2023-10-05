@@ -1,0 +1,16 @@
+<h1>Hello <%= @object.name %></h1>
+
+<p>
+Hello <%= @object.name %>
+Your Application Has been approved
+</p>
+
+
+<% @object.attributes.each do | att_key, att_value|%>
+<p><strong> <%= att_key%></strong>-<%= att_value%></p>
+<% end %>
+
+<h3> now the <%= @object.class.to_s %> has total of <%= @object_count %> records</h3>
+
+<h4> Thank You </h4>
+<h4> Bestpeers HR team </h4>
