@@ -66,6 +66,6 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:name, :age, :address, :currentsalary, :position, :yop, :contact_number, :email, :status)
+    params.require(:request).permit(:name, :gender, :date_of_birth, :address, :currentsalary, :position, :yop, :contact_number, :email, :status, :resume)
   end
 end

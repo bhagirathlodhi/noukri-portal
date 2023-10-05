@@ -38,6 +38,7 @@
             <div class="col-sm-3 text-lg-end">
               <a href="<%= new_job_request_path(job) %>" class="btn btn-primary stretched-link">Apply</a>
             </div>
+            <%= will_paginate @jobs %>
           </div>
         </div>
       </div>

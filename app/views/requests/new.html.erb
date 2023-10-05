@@ -1,58 +1,109 @@
-
-<div class="p-4">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-5 col-sm-6 col-lg-3 mx-auto">
-        <div class="formContainer">
-          <h2 class="center"> Apply </h2>
-          <%= form_with model: [@job, @request] do |form| %>
-
-            <div class="field">
-              <%= form.label :name %>
-              <%= form.text_field :name, class: "form-control" %>
+<section class="h-100 bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                alt="Sample photo" class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
             </div>
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase">Applicants registration form</h3>
 
-            <div class="field">
-            <%= form.label :age %>
-            <%= form.date_field :age, class: "form-control" %>
-            </div>
-            
-            <div class="field">
-              <%= form.label :address %>
-              <%= form.text_field :address, class: "form-control" %>
-            </div>
+                <%= form_with model: [@job, @request] do |form| %>
+                  <div class="row">
+                    <div id="form3Example1n" class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <%= form.label :name %>
+                        <%= form.text_field :name, class: "form-control form-control-lg" %>
+                      </div>
+                    </div>
+                    <div id="form3Example1n" class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <%= form.label :email %>
+                        <%= form.text_field :email, class: "form-control form-control-lg" %>
+                      </div>
+                    </div>
+                  </div>
 
-            <div>
-              <%= form.label :currentsalary %>
-              <%= form.text_field :currentsalary, class: "form-control" %>
-            </div>
+                  <div class="row">
+                    <div id="form3Example1n" class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <%= form.label :contact_number %>
+                        <%= form.text_field :contact_number, class: "form-control" %>
+                      </div>
+                    </div>
+                    <div id="form3Example1n" class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <%= form.label :address %>
+                        <%= form.text_field :address, class: "form-control" %>
+                      </div>
+                    </div>
+                  </div>
 
-            <div class="field">
-              <%= form.label :position %>
-              <%= form.text_field :position, class: "form-control" %>
-            </div>
+                  <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
 
-            <div class="field">
-              <%= form.label :yop %>
-              <%= form.date_field :yop, class: "form-control" %>
-            </div>
+                    <h6 class="mb-0 me-4">Gender: </h6>
 
-            <div class="field">
-              <%= form.label :contact_number %>
-              <%= form.text_field :contact_number, class: "form-control" %>
-            </div>
+                    <div id="femaleGender" class="form-check form-check-inline mb-0 me-4">
+                      <%= radio_button_tag(:gender, "male") %>
+                      <%= label_tag(:gender,  "Male") %>
+                    </div>
 
-            <div class="field">
-              <%= form.label :email %>
-              <%= form.text_field :email, class: "form-control" %>
-            </div>
+                    <div id="maleGender" class="form-check form-check-inline mb-0 me-4">
+                    <%= label_tag :gender, 'Female' %>
+                    <%= radio_button_tag :gender, 'female' %>
+                    </div>
 
-            <div class="field">
-              <%= form.submit class: "btn btn-primary btn-lg w-100 mt-4" %>
-            </div>
-          <% end %>
+                    <div id="otherGender" class="form-check form-check-inline mb-0">
+                      <%= label_tag :gender, 'Other' %>
+                      <%= radio_button_tag :gender, 'other' %>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div id="form3Example1n" class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <%= form.label :currentsalary %>
+                        <%= form.text_field :currentsalary, class: "form-control" %>
+                      </div>
+                    </div>
+                    <div id="form3Example1n" class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <%= form.label :date_of_birth %>
+                        <%= form.date_field :date_of_birth, class: "form-control" %>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <%= form.label :position %>
+                    <%= form.text_field :position, class: "form-control" %>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <%= form.label :yop %>
+                    <%= form.date_field :yop, class: "form-control" %>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <%= form.label :resume %>
+                    <%= form.file_field :resume, class: "form-control" %>
+                  </div>
+
+                  <div class="d-flex justify-content-end pt-3">
+                    <%= form.submit "Apply", class: "btn btn-primary btn-lg w-100 mt-4" %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>  
+    </div>
   </div>
-</div>
+</section>
