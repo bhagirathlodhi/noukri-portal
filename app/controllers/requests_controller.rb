@@ -1,10 +1,11 @@
 class RequestsController < ApplicationController
-  #before_action :set_request, only: [:show, :edit, :update, :destroy, :accept, :reject]
+  # before_action :set_request, only: [:show, :edit, :update, :destroy, :accept, :reject]
 
   def index
-    @requests = Request.all
+    @p = Request.ransack(params[:p])
+    @requests = @p.result(distinct: true).page(params[:page])
+    # @requests = Request.all
   end
-
 
   def new
     @job = Job.find_by(id: params[:job_id])
@@ -16,18 +17,12 @@ class RequestsController < ApplicationController
     @request = @job.requests.create(request_params)
     if @request.save
       SendMailMailer.apply_notification(@request).deliver_now
-      flash[:success] = "Applied Successfully"
+      flash.now[:success] = "Applied Successfully"
       redirect_to root_path 
     end
   end
   def show
     @request = Request.find(params[:id])
-  end
-
-  def pending
-    @user = @request.users.find(params[:id])
-    @applicant.update(status: 'Pending')
-    redirect_to application_applicants_path(@application)
   end
 
   def accept
@@ -56,16 +51,16 @@ class RequestsController < ApplicationController
 
   private
 
-  def has_applied?
-    if Job.where(user_id: :current_user.id, job_id: params[:job_id]).any?
-      redirect_to :index, alert: "You have already applied"
+    def has_applied?
+      if Job.where(user_id: :current_user.id, job_id: params[:job_id]).any?
+        redirect_to :index, alert: "You have already applied"
+      end
     end
-  end
-  def set_request
-    @request = Request.find(params[:id])
-  end
+    def set_request
+      @request = Request.find(params[:id])
+    end
 
-  def request_params
-    params.require(:request).permit(:name, :gender, :date_of_birth, :address, :currentsalary, :position, :yop, :contact_number, :email, :status, :resume)
-  end
+    def request_params
+      params.require(:request).permit(:name, :gender, :date_of_birth, :address, :currentsalary, :position, :yop, :contact_number, :email, :status, :resume)
+    end
 end

@@ -1,0 +1,30 @@
+
+  <h3>Applicants Details</h3>
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th>Applicants Name</th>
+      <th>Gender</th>
+      <th>Email</th>
+      <th>Mobile Number</th>
+      <th>Address</th>
+      <th>Current salary</th>
+      <th>DOB</th>
+      <th>Status</th>
+    </tr>
+    
+      <tr>
+        <td><%= @request.name %></td>
+        <td><%= @request.gender %></td>
+        <td><%= @request.email %></td>
+        <td><%= @request.contact_number %></td>
+        <td><%= @request.address %></td>
+        <td><%= @request.currentsalary%></td>
+        <td><%= @request.date_of_birth %></td>
+        <td><%= @request.status %></td>
+      </tr>
+    
+  </table>
+  <div class="d-grid gap-2 col-2 mx-auto">
+    <%=link_to "Back", requests_path ,class:"btn btn-primary"%>
+  </div>
+      

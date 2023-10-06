@@ -17,7 +17,7 @@
       </div>
   <% end %>
 </div>
-  
+ 
 <div class="text-center mb-3">
   <h3>Jobs openning</h3>
 </div>
@@ -35,17 +35,25 @@
               <span class="badge bg-secondary">salary--<%= job.salary %></span>
               <span class="badge bg-secondary">number of vacancy--<%= job.vacancy %></span>
             </div>
-            <div class="col-sm-3 text-lg-end">
-              <a href="<%= new_job_request_path(job) %>" class="btn btn-primary stretched-link">Apply</a>
-            </div>
-            <%= will_paginate @jobs %>
+            <% if current_user.try(:admin?) %>
+              <div class="col-sm-3 text-lg-end">
+                <a href="<%= edit_job_path(job) %>" class="btn btn-primary stretched-link">Edit</a>
+              </div>
+            <% else %>
+              <div class="col-sm-3 text-lg-end">
+                <a href="<%= new_job_request_path(job) %>" class="btn btn-primary stretched-link">Apply</a>
+              </div>
+              <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
-<% end %>
 
+<% end %>
+<ul class="pagination justify-content-center">
+  <%= paginate @jobs %>
+</ul>
 
 
 

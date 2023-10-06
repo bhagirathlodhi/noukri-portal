@@ -82,4 +82,5 @@ gem "devise", "~> 4.9"
 gem "followability", "~> 1.1"
 gem 'ransack', '~> 4.0'
 gem 'cancancan'
-gem 'will_paginate', '~> 4.0'
+#gem 'will_paginate', '~> 4.0'
+gem 'kaminari'

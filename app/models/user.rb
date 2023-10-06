@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   rolify
   has_many :jobs, dependent: :destroy
-  has_many :requests, dependent: :destroy
+  #has_many :requests, dependent: :destroy
   
   
   # Include default devise modules. Others available are:

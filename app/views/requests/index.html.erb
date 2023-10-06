@@ -1,3 +1,16 @@
+<h3 class="text-center">Search Application </h3>
+<div class="card-body">
+    <%= search_form_for @p do |form| %>
+      <div class="lable">
+        <%= form.label :status %>
+        <%= form.search_field :status_cont, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit class:"btn btn-success btn-lg mt-4" %>
+      </div>
+  <% end %>
+</div>
 
 <% if @requests.any? %>
   <h3>All Application</h3>
@@ -11,7 +24,9 @@
       <th>Current salary</th>
       <th>DOB</th>
       <th>Status</th>
-      <th>Admin Action</th>
+      <% if current_user.try(:admin?) %>
+        <th>Admin Action</th>
+      <% end %>
     </tr>
     <% @requests.each do |request| %>
       <tr>
@@ -41,3 +56,8 @@
   <% else %>
     <h3>Application Not found </h3>
   <% end %>     
+  <ul class="pagination justify-content-center mt-3">
+  <%= paginate @requests %>
+</ul>
+
+  

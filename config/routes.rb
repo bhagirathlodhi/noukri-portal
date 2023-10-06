@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # get '/show_job', to: 'jobs#show'
   # delete '/destroy_job', to: 'jobs#destroy'
 
-  get '/applicants', to: 'requests#index'
+  get '/requests', to: 'requests#index'
   root "jobs#index"
   get 'users/index'
   devise_for :users
