@@ -2,8 +2,16 @@ class RequestsController < ApplicationController
   # before_action :set_request, only: [:show, :edit, :update, :destroy, :accept, :reject]
 
   def index
-    @p = Request.ransack(params[:p])
-    @requests = @p.result(distinct: true).page(params[:page])
+    # if current_user.admin? 
+      @p = Request.ransack(params[:p])
+      @requests = @p.result(distinct: true).page(params[:page])
+    # else
+    #   @p = Request.ransack(params[:p])
+    #   @requests = @p.result(distinct: true).page(params[:page])
+    # end
+    #authorize! :read, @requests
+    # @p = Request.ransack(params[:p])
+    # @requests = @p.result(distinct: true).page(params[:page])
     # @requests = Request.all
   end
 
@@ -51,11 +59,6 @@ class RequestsController < ApplicationController
 
   private
 
-    def has_applied?
-      if Job.where(user_id: :current_user.id, job_id: params[:job_id]).any?
-        redirect_to :index, alert: "You have already applied"
-      end
-    end
     def set_request
       @request = Request.find(params[:id])
     end

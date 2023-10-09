@@ -1,19 +1,13 @@
 <h1>hello <%= @object.name %></h1>
 
 <p>
-This is an automated email to notify you that you have been en
-tered into our recruiting candidate database by SF ADMIN. 
+This is an automated email to notify you that you have been 
+entered into our recruiting candidate database by SF ADMIN. 
 You may have submitted your resume to an employee or 
 recruiter at a company event, or it may have been submitted by an external recruiter for consideration for a particular job opening.
 
 </p>
 
-
-<% @object.attributes.each do | att_key, att_value|%>
-<p><strong> <%= att_key%></strong>-<%= att_value%></p>
-<% end %>
-
-<h3> now the <%= @object.class.to_s %> has total of <%= @object_count %> records</h3>
 
 <h4> Thank You </h4>
 <h4> Bestpeers HR team </h4>

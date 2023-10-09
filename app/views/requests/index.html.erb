@@ -16,6 +16,7 @@
   <h3>All Application</h3>
   <table class="table table-bordered table-striped">
     <tr>
+      <th>Job</th>
       <th>Applicants Name</th>
       <th>Gender</th>
       <th>Email</th>
@@ -30,6 +31,7 @@
     </tr>
     <% @requests.each do |request| %>
       <tr>
+        <th><%= link_to request.job.title, job_path(request.job_id) %></th>
         <td><%= request.name %></td>
         <td><%= request.gender %></td>
         <td><%= request.email %></td>

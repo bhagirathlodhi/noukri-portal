@@ -1,9 +1,14 @@
 class JobsController < ApplicationController
-  
+  before_action :authenticate_user!
 
   def index
-    @q = Job.ransack(params[:q])
-    @jobs = @q.result(distinct: true).page(params[:page])
+    if current_user.admin?
+      @q = current_user.jobs.ransack(params[:q])
+      @jobs = @q.result(distinct: true).page(params[:page])
+    else
+      @q = Job.ransack(params[:q])
+      @jobs = @q.result(distinct: true).page(params[:page])
+    end
   end
 
   def new
@@ -38,17 +43,7 @@ class JobsController < ApplicationController
     end
   end
 
-  def destroy
-  end
-
   private
-
-  
-    def check_admin
-      unless current_user.admin?
-        redirect_to root_path, alert: 'You are not authorized to perform this action.'
-      end
-    end
 
     def job_params
       params.require(:job).permit(:title, :experience, :salary, :location, :skills, :description, :vacancy)
