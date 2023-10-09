@@ -49,18 +49,18 @@
                     <h6 class="mb-0 me-4">Gender: </h6>
 
                     <div id="femaleGender" class="form-check form-check-inline mb-0 me-4">
-                      <%= radio_button_tag(:gender, "male") %>
-                      <%= label_tag(:gender,  "Male") %>
+                      <%= form.label :gender, "Male", value:  "male" %>
+                      <%= form.radio_button :gender, "male" %>
                     </div>
 
                     <div id="maleGender" class="form-check form-check-inline mb-0 me-4">
-                    <%= label_tag :gender, 'Female' %>
-                    <%= radio_button_tag :gender, 'female' %>
+                      <%= form.label :gender, "Female", value:  "female" %>
+                      <%= form.radio_button :gender, "female" %>
                     </div>
 
                     <div id="otherGender" class="form-check form-check-inline mb-0">
-                      <%= label_tag :gender, 'Other' %>
-                      <%= radio_button_tag :gender, 'other' %>
+                      <%= form.label :gender, "Other", value:  "other" %>
+                      <%= form.radio_button :gender, "other" %>
                     </div>
 
                   </div>

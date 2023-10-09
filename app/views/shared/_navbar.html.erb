@@ -32,8 +32,6 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><%= button_to "Log Out", destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
               <li><a class="dropdown-item" href="<%= edit_user_registration_path %>">Edit profile action</a></li>
-              <li><%= button_to "reset password", edit_password_path, class: "dropdown-item" %></li>
-              <li><a class="dropdown-item" href="<%= edit_user_password_path %>">Change password</a></li>
             </ul>
         </li>
         <% else %>

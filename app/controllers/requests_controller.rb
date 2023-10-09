@@ -2,14 +2,16 @@ class RequestsController < ApplicationController
   # before_action :set_request, only: [:show, :edit, :update, :destroy, :accept, :reject]
 
   def index
-    # if current_user.admin? 
+    #if current_user.admin? 
+      #User.find(5).jobs.last.requests
+      # @p = current_user.jobs.requests
       @p = Request.ransack(params[:p])
       @requests = @p.result(distinct: true).page(params[:page])
     # else
     #   @p = Request.ransack(params[:p])
     #   @requests = @p.result(distinct: true).page(params[:page])
     # end
-    #authorize! :read, @requests
+    # authorize! :read, @requests
     # @p = Request.ransack(params[:p])
     # @requests = @p.result(distinct: true).page(params[:page])
     # @requests = Request.all
