@@ -15,16 +15,22 @@ Things you may want to cover:
 * <h5>node version v20.6.1</h5>
 * <h5>***************************</h5>
 
-* <h2>Features</h2>
-* <h2>A) Authentication Features</h2>
-  * <p>1. User authentication with email and password.</p>
-  * <p>2. User registration with email verification.</p>
-  * <p>3. Role-based access control with two roles - User and Admin.</p>
+ <h2>Features</h2>
+ <h2>A) Authentication Features</h2>
+   <p>1. User authentication with email and password.</p>
+   <p>2. User registration with email verification.</p>
+   <p>3. Role-based access control with two roles - Applicants and Admin.</p>
 
+ <h2>B) Admin </h2>
+   <p>1. Admin can create a job & publish </p>
+   <p>2. Admin can edit him job </p>
+   <p>3. Admin can Search job Based on Salary and title</p>
+   <p>4. Admin can Accept & reject of Applicants Application </p>
+   <p>4. Admin After Accept & reject any Applicaton can send mail  </p>
 
-* <p>4. </p>
-* <h5>ruby version 3.0.0</h5>
-* <h5>ruby version 3.0.0</h5>
-* <h5>ruby version 3.0.0</h5>
-* <h5>ruby version 3.0.0</h5>
+ <h2>B) Applicants & User </h2>
+   <p>1.User can apply a targeted jo</p>
+   <p>2.After apply job User get Application Submission Mail</p>
+   <p>3. User can see All Application </p>
+   <p>4. User can search a job based on salary & title</p>
 
