@@ -28,7 +28,7 @@ Things you may want to cover:
    <p>5. Admin After Accept & reject any Applicaton can send mail  </p>
 
  <h2>C) Applicants & User </h2>
-   <p>1.User can apply a targeted jo</p>
+   <p>1.User can apply a targeted job</p>
    <p>2.After apply job User get Application Submission Mail</p>
    <p>3. User can see All Application </p>
    <p>4. User can search a job based on salary & title</p>
