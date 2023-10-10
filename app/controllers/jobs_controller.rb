@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :find_job, only: %i[show edit]
 
   def index
     if current_user.admin?
@@ -26,12 +26,10 @@ class JobsController < ApplicationController
     end
   end
 
-  def show
-    @job = Job.find(params[:id])
+  def show 
   end
 
-  def edit
-    @job = Job.find(params[:id])
+  def edit 
   end
 
   def def update
@@ -44,6 +42,10 @@ class JobsController < ApplicationController
   end
 
   private
+
+    def find_job
+      @job = Job.find(params[:id])
+    end
 
     def job_params
       params.require(:job).permit(:title, :experience, :salary, :location, :skills, :description, :vacancy)

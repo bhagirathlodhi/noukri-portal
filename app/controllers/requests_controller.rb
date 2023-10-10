@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
-  # before_action :set_request, only: [:show, :edit, :update, :destroy, :accept, :reject]
+  before_action :find_request, only: %i[new create accept reject]
+  # load_and_authorize_resource
 
   def index
     #if current_user.admin? 
@@ -7,6 +8,7 @@ class RequestsController < ApplicationController
       # @p = current_user.jobs.requests
       @p = Request.ransack(params[:p])
       @requests = @p.result.page(params[:page])
+      #authorize! :read, @requests.accessible_by(current_ability)
     # else
     #   @p = Request.ransack(params[:p])
     #   @requests = @p.result(distinct: true).page(params[:page])
@@ -61,9 +63,13 @@ class RequestsController < ApplicationController
 
   private
 
-    def set_request
-      @request = Request.find(params[:id])
+    def find_request
+      @job = Job.find_by(id: params[:job_id])
     end
+
+    # def set_request
+    #   @request = Request.find(params[:id])
+    # end
 
     def request_params
       params.require(:request).permit(:name, :gender, :date_of_birth, :address, :currentsalary, :position, :yop, :contact_number, :email, :status, :resume)

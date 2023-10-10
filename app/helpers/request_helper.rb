@@ -1,3 +1,2 @@
 module RequestHelper
-  
 end
