@@ -1,6 +1,6 @@
 <h2>Nauri-Portal</h2>
 <h6>introduction</h6>
-  <p>Job portal is an application which connects employer and job seekers where employers are the source of the resources and the job seeker can find and apply for   their targeted job. This document provides details about the entire software requirement specification for the online job portal</p>
+  <p>Nauri-Portal is an application which connects employer and job seekers where employers are the source of the resources and the job seeker can find and apply for   their targeted job. This document provides details about the entire software requirement specification for the Nauri-Portal</p>
 
 Things you may want to cover:
 
