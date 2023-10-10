@@ -16,4 +16,15 @@ Things you may want to cover:
 * <h5>***************************</h5>
 
 * <h2>Features</h2>
+* <h2>A) Authentication Features</h2>
+  * <p>1. User authentication with email and password.</p>
+  * <p>2. User registration with email verification.</p>
+  * <p>3. Role-based access control with two roles - User and Admin.</p>
+
+
+* <p>4. </p>
+* <h5>ruby version 3.0.0</h5>
+* <h5>ruby version 3.0.0</h5>
+* <h5>ruby version 3.0.0</h5>
+* <h5>ruby version 3.0.0</h5>
 
