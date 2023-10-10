@@ -6,7 +6,7 @@ class RequestsController < ApplicationController
       #User.find(5).jobs.last.requests
       # @p = current_user.jobs.requests
       @p = Request.ransack(params[:p])
-      @requests = @p.result(distinct: true).page(params[:page])
+      @requests = @p.result.page(params[:page])
     # else
     #   @p = Request.ransack(params[:p])
     #   @requests = @p.result(distinct: true).page(params[:page])
