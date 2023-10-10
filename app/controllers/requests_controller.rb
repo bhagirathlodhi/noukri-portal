@@ -7,7 +7,7 @@ class RequestsController < ApplicationController
       #User.find(5).jobs.last.requests
       # @p = current_user.jobs.requests
       @p = Request.ransack(params[:p])
-      @requests = @p.result.page(params[:page])
+      @requests = @p.result.page params[:page]
       #authorize! :read, @requests.accessible_by(current_ability)
     # else
     #   @p = Request.ransack(params[:p])

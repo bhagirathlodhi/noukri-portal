@@ -1,6 +1,5 @@
 module JobsHelper
   def has_applied(job)
-    #debugger
     @job = job
     @request = @job.requests
     @request.each do |rq|
