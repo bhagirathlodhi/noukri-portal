@@ -42,25 +42,25 @@
           <td><%= request.date_of_birth %></td>
           <td><%= request.status %></td>
           <td>
-          <% if current_user.try(:admin?) %>
-          <%= link_to 'Details', job_request_path(request.job_id, request), class: "btn btn-info" %>
-            <%if request.status != "Rejected" && request.status != "Accept"%>
-              <%= link_to "Accept", job_request_accept_path(request.job_id, request), class: "btn btn-success", data: { confirm: "Are you sure you want to Accept this Application?" } %>
-              <%= link_to "Reject", job_request_reject_path(request.job_id, request), method: :put, class: "btn btn-warning", data: { confirm: "Are you sure you want to reject this Application?" } %>
-            <%end%>
-          <% end %>
+            <% if current_user.try(:admin?) %>
+              <%= link_to 'Details', job_request_path(request.job_id, request), class: "btn btn-info" %>
+              <%if request.status != "Rejected" && request.status != "Accept"%>
+                <%= link_to "Accept", job_request_accept_path(request.job_id, request), class: "btn btn-success", data: { confirm: "Are you sure you want to Accept this Application?" } %>
+                <%= link_to "Reject", job_request_reject_path(request.job_id, request), method: :put, class: "btn btn-warning", data: { confirm: "Are you sure you want to reject this Application?" } %>
+              <%end%>
+            <% end %>
           </td>
         </tr>
       <% end %>
-      <% end %>
-      </table>
-      <ul class="pagination justify-content-center mt-3">
-        <%= paginate @requests %>
-      </ul>
+    <% end %>
+  </table>
+  <ul class="pagination justify-content-center mt-3">
+    <%= paginate @requests %>
+  </ul>
   <div class="d-grid gap-2 col-2 mx-auto">
     <%=link_to "Back", root_path ,class:"btn btn-primary"%>
   </div>
 <% else %>
-    <h3>Application Not found </h3>
+  <h3>Application Not found </h3>
 <% end %>     
- 
+
