@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_05_115758) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_11_080519) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -53,8 +53,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_05_115758) do
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
-# Could not dump table "requests" because of following StandardError
-#   Unknown type 'attachment' for column 'resume'
+  create_table "requests", force: :cascade do |t|
+    t.string "name"
+    t.string "date_of_birth"
+    t.string "address"
+    t.string "currentsalary"
+    t.string "position"
+    t.date "yop"
+    t.integer "job_id", null: false
+    t.string "contact_number"
+    t.string "email"
+    t.integer "status", default: 0
+    t.string "gender"
+    t.string "resume"
+    t.index ["job_id"], name: "index_requests_on_job_id"
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"

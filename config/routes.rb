@@ -15,7 +15,6 @@ Rails.application.routes.draw do
     resources :requests do
       get 'accept'
       get 'reject'
-      get 'pending'
     end
   end
 

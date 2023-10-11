@@ -12,7 +12,7 @@
   <% end %>
 </div>
 
-<h3>All Application</h3>
+<h3 class="text center">All Application</h3>
 <% if @requests.any? %>
   <table class="table table-bordered table-striped">
     <tr>
@@ -52,6 +52,21 @@
           </td>
         </tr>
       <% end %>
+      <tr>
+        <% if is_user_request(request) %>
+          <% if current_user.try(:admin?) == false %>
+            <th><%= link_to request.job.title, job_path(request.job_id) %></th>
+            <td><%= request.name %></td>
+            <td><%= request.gender %></td>
+            <td><%= request.email %></td>
+            <td><%= request.contact_number %></td>
+            <td><%= request.address %></td>
+            <td><%= request.currentsalary%></td>
+            <td><%= request.date_of_birth %></td>
+            <td><%= request.status %></td>
+          <% end %> 
+        <% end %>
+      </tr>
     <% end %>
   </table>
   <ul class="pagination justify-content-center mt-3">

@@ -21,6 +21,10 @@
         <td><%= @request.currentsalary%></td>
         <td><%= @request.date_of_birth %></td>
         <td><%= @request.status %></td>
+        <% if @request.resume.attached? %>
+          <td><%= link_to "Download PDF", rails_blob_url(@request.resume, disposition: "attachment") %></td>
+          <td><iframe src="<%= rails_blob_url(@request.resume) %>" width="100%" height="500"></iframe></td>
+        <% end %>
       </tr>
     
   </table>
