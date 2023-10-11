@@ -26,10 +26,12 @@ Things you may want to cover:
    <p>3. Admin can Search job Based on Salary and title</p>
    <p>4. Admin can Accept & reject of Applicants Application </p>
    <p>5. Admin After Accept & reject any Applicaton can send mail  </p>
+   <p>6. Admin can seen & Download Resume </p>
 
  <h2>C) Applicants & User </h2>
    <p>1.User can apply a targeted job</p>
    <p>2.After apply job User get Application Submission Mail</p>
    <p>3. User can see All Application </p>
    <p>4. User can search a job based on salary & title</p>
+   <p>5. User can seen & Download Resume </p>
 
