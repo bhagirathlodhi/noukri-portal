@@ -29,7 +29,7 @@ class RequestsController < ApplicationController
       redirect_to request.referrer
       SendMailMailer.confirm_notification(@request).deliver_now
     else
-      redirect_to request.referrer, notice: " already Accepted"
+      redirect_to request.referrer, notice: "Application already Accepted"
     end
   end
 
