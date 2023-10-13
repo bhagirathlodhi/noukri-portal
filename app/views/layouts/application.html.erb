@@ -12,9 +12,14 @@
 
   <body class="d-flex flex-column min-vh-100">
     <%= render 'shared/navbar' %>
-    <main class="flex-grow-1">
+    
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
       <%= yield %>
-    </main>>
+    
+      
+   
   </body>
   <%= render 'shared/footer' %>
 </html>

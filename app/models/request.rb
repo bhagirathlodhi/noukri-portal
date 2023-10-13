@@ -1,9 +1,7 @@
 class Request < ApplicationRecord
   paginates_per 10
 
-
   belongs_to :job
-  # belongs_to :user
 
   has_one_attached :resume
 

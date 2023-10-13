@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
     @request = @job.requests.create(request_params)
     if @request.save
       SendMailMailer.apply_notification(@request).deliver_now
-      flash.now[:success] = "Applied Successfully"
+      flash[:success] = "Applied Successfully"
       redirect_to root_path 
     end
   end
@@ -38,6 +38,7 @@ class RequestsController < ApplicationController
       flash[:alert] = "Application has been rejected."
       redirect_to request.referrer
       SendMailMailer.reject_notification(@request).deliver_now
+      @request.destroy
     else
       redirect_to request.referrer, notice: "Application already rejected"
     end

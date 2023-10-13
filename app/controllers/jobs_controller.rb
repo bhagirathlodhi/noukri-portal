@@ -19,7 +19,7 @@ class JobsController < ApplicationController
     @user = User.find_by(id: current_user.id)
     @job = @user.jobs.build(job_params)
     if @job.save
-      flash.now[:success] = "Job Created"
+      flash[:success] = "Job Created"
       redirect_to jobs_path
     else
       render :new, status: :see_other
@@ -33,8 +33,9 @@ class JobsController < ApplicationController
   end
 
   def def update
+    debugger
     if @job.update(job_params)
-      flash.now[:success] = "Updated Successfully"
+      flash[:success] = "Updated Successfully"
       redirect_to root_path
     else
       render :edit, status: :see_other

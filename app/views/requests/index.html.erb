@@ -1,14 +1,14 @@
 <h3 class="text-center">Search Application </h3>
 <div class="card-body">
-    <%= search_form_for @p do |form| %>
-      <div class="lable">
-        <%= form.label :status %>
-        <%= form.search_field :status_cont, class: "form-control" %>
-      </div>
+  <%= search_form_for @p do |form| %>
+    <div class="lable">
+      <%= form.label :status %>
+      <%= form.search_field :status_cont, class: "form-control" %>
+    </div>
 
-      <div class="form-group">
-        <%= form.submit class:"btn btn-success btn-lg mt-4" %>
-      </div>
+    <div class="form-group">
+      <%= form.submit class:"btn btn-success btn-lg mt-4" %>
+    </div>
   <% end %>
 </div>
 
@@ -46,7 +46,7 @@
               <%= link_to 'Details', job_request_path(request.job_id, request), class: "btn btn-info" %>
               <%if request.status != "Rejected" && request.status != "Accept"%>
                 <%= link_to "Accept", job_request_accept_path(request.job_id, request), class: "btn btn-success", data: { confirm: "Are you sure you want to Accept this Application?" } %>
-                <%= link_to "Reject", job_request_reject_path(request.job_id, request), method: :put, class: "btn btn-warning", data: { confirm: "Are you sure you want to reject this Application?" } %>
+                <%= link_to "Reject", job_request_reject_path(request.job_id, request), method: :put, class: "btn btn-warning", data: { turbo_confirm: "Are you sure you want to reject this Application?" } %>
               <%end%>
             <% end %>
           </td>

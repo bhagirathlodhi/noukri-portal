@@ -1,6 +1,5 @@
 class Job < ApplicationRecord
   paginates_per 5
-  #self.per_page = 5
 
   belongs_to :user
   has_many :requests, dependent: :destroy
