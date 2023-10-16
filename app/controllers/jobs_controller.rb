@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :find_job, only: %i[show edit]
+  before_action :find_job, only: %i[show edit update]
 
   def index
     if current_user.admin?
@@ -32,8 +32,7 @@ class JobsController < ApplicationController
   def edit 
   end
 
-  def def update
-    debugger
+  def update
     if @job.update(job_params)
       flash[:success] = "Updated Successfully"
       redirect_to root_path
