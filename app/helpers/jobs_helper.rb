@@ -5,6 +5,5 @@ module JobsHelper
     @request.each do |rq|
       return if current_user.email == rq.email
     end
-    
   end
 end

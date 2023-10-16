@@ -10,15 +10,15 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="d-flex flex-column min-vh-100">
+  <body>
     <%= render 'shared/navbar' %>
     
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
+   
     
-      
    
   </body>
   <%= render 'shared/footer' %>

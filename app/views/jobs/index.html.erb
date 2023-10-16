@@ -1,6 +1,6 @@
-
-<h3 class="text-center">Search Job </h3>
-<div class="card-body">
+<div class="container">
+  <h3 class="text-center">Search Job </h3>
+  <div class="card-body">
     <%= search_form_for @q, url: :jobs do |form| %>
       <div class="lable">
         <%= form.label :salary %>
@@ -15,45 +15,47 @@
       <div class="form-group">
         <%= form.submit class:"btn btn-success btn-lg mt-4" %>
       </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 <div class="text-center mb-3">
   <h3>Jobs openning</h3>
 </div>
 <% @jobs.each do |job| %>
-  <div class="card mb-3">
-    <div class="card-body">
-      <div class="d-flex flex-column flex-lg-row">
-        <div class="row flex-fill">
-            <div class="col-sm-5">
-              <%= link_to job.title , job_path(job) %>
-            </div>
+  <div class="container">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex flex-column flex-lg-row">
+          <div class="row flex-fill">
+              <div class="col-sm-5">
+                <%= link_to job.title , job_path(job) %>
+              </div>
 
-            <div class="col-sm-4 py-2">
-              <span class="badge bg-secondary"><%= job.skills %></span>
-              <span class="badge bg-secondary">salary--<%= job.salary %></span>
-              <span class="badge bg-secondary">number of vacancy--<%= job.vacancy %></span>
+              <div class="col-sm-4 py-2">
+                <span class="badge bg-secondary"><%= job.skills %></span>
+                <span class="badge bg-secondary">salary--<%= job.salary %></span>
+                <span class="badge bg-secondary">number of vacancy--<%= job.vacancy %></span>
+              </div>
+              <% if current_user.try(:admin?) %>
+                <div class="col-sm-3 text-lg-end">
+                  <a href="<%= edit_job_path(job) %>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                </div>
+              <% elsif has_applied(job) %>
+                <div class="col-sm-3 text-lg-end">
+                  <a href="<%= new_job_request_path(job) %>" class="btn btn-primary">Apply</a>
+                </div>
+              <% else %>
+                <div class="col-sm-3 text-lg-end">
+                  <a href="#" class="btn btn-success">Applied</a>
+                </div>
+              <% end %>
             </div>
-            <% if current_user.try(:admin?) %>
-              <div class="col-sm-3 text-lg-end">
-                <a href="<%= edit_job_path(job) %>" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
-              </div>
-            <% elsif has_applied(job) %>
-              <div class="col-sm-3 text-lg-end">
-                <a href="<%= new_job_request_path(job) %>" class="btn btn-primary">Apply</a>
-              </div>
-            <% else %>
-              <div class="col-sm-3 text-lg-end">
-                <a href="#" class="btn btn-success">Applied</a>
-              </div>
-            <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 <% end %>
 <ul class="pagination justify-content-center">
   <%= paginate @jobs %>
