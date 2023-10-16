@@ -5,3 +5,18 @@
 # below each fixture, per the syntax in the comments below
 #
 
+michael:
+  name: Michael Example
+  email: michael@example.com
+  encrypted_password: "encrypted_password"
+  admin: true
+  
+  
+
+archer:
+  name: Sterling Archer
+  email: duchess@example.gov
+  encrypted_password: "encrypted_password"
+  admin: true
+
+ 

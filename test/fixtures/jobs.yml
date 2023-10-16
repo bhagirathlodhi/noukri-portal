@@ -1,17 +1,20 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  experience: MyString
-  salary: MyString
-  location: MyString
-  skills: MyString
-  description: MyString
-
+  title: "developer"
+  experience: "5 year"
+  salary: "250000"
+  location: "Bangaluru"
+  skills: "Java"
+  description: "emediate joiner"
+  user: michael
+  vacancy: nil>
 two:
-  title: MyString
-  experience: MyString
-  salary: MyString
-  location: MyString
-  skills: MyString
-  description: MyString
+  title: "HR "
+  experience: "2 Year"
+  salary: "50000"
+  location: "Noida"
+  skills: "Communication "
+  description: "create for try"
+  user_id: michael
+  vacancy: nil>
