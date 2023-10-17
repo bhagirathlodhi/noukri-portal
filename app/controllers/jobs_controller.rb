@@ -10,7 +10,7 @@ class JobsController < ApplicationController
       @jobs = @q.result(distinct: true).page(params[:page])
     end
   end
-
+ 
   def new
     @job  = Job.new
   end

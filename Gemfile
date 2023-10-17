@@ -86,3 +86,5 @@ gem 'ransack', '~> 4.0'
 gem 'cancancan'
 #gem 'will_paginate', '~> 4.0'
 gem 'kaminari'
+
+gem 'rails-controller-testing', '~> 0.0.3'

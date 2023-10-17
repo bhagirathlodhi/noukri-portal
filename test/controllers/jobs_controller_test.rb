@@ -1,16 +1,16 @@
 require "test_helper"
 
 class JobsControllerTest < ActionDispatch::IntegrationTest
-  
   def setup
-    @user = users(:michael)
-    sign_in @user
+    @job = jobs(:one)
+    @other_job = jobs(:two)
   end
   
   test "should get index" do
-    get root_path
+    get jobs_url
     assert_response :success
   end
+  
 
   test "should get new" do
     get new_job_path
@@ -18,7 +18,8 @@ class JobsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
-    get edit_job_path
+    get edit_job_path(@job)
     assert_response :success
   end
 end
+

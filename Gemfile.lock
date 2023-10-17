@@ -201,6 +201,8 @@ GEM
       activesupport (= 7.0.8)
       bundler (>= 1.15.0)
       railties (= 7.0.8)
+    rails-controller-testing (0.0.3)
+      rails (>= 4.2)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -310,6 +312,7 @@ DEPENDENCIES
   letter_opener_web (~> 2.0)
   puma (~> 5.0)
   rails (~> 7.0.8)
+  rails-controller-testing (~> 0.0.3)
   ransack (~> 4.0)
   rolify
   rspec (~> 3.12)
