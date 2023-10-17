@@ -1,17 +1,3 @@
-<div class="container">
-  <h3 class="text-center">Search Application </h3>
-  <div class="card-body">
-    <%= search_form_for @p do |form| %>
-      <div class="lable">
-        <%= form.label :status %>
-        <%= form.search_field :status_cont, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= form.submit class:"btn btn-success btn-lg mt-4" %>
-      </div>
-    <% end %>
-  </div>
 
   <h3 class="text center">All Application</h3>
   <% if @requests.any? %>
