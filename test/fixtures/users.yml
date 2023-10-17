@@ -6,17 +6,17 @@
 #
 
 michael:
-  name: Michael Example
+  name: "michael"
   email: michael@example.com
-  encrypted_password: "encrypted_password"
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
   admin: true
   
   
 
-archer:
-  name: Sterling Archer
+dev:
+  name: "dev"
   email: duchess@example.gov
-  encrypted_password: "encrypted_password"
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
   admin: true
 
  

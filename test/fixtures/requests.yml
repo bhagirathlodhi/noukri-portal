@@ -15,7 +15,7 @@ one:
   yop: 12/11/2021
   email: 'example@gmail.com'
   gender: 'male'
-  job_id: 2
+  job: two
 
 two:
   name: 'bhagirath'
@@ -26,4 +26,4 @@ two:
   yop: 12/11/2021
   email: 'example1@gmail.com'
   gender: 'male'
-  job_id: 3
+  job: one

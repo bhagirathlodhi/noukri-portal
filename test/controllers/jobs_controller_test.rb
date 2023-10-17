@@ -8,7 +8,7 @@ class JobsControllerTest < ActionDispatch::IntegrationTest
   end
   
   test "should get index" do
-    get jobs_path
+    get root_path
     assert_response :success
   end
 
