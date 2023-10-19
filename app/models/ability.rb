@@ -9,6 +9,12 @@ class Ability
     if user.admin?
      # can :edit, Job, user_id: user.id
       can :read, Request, user_id: user.id
+
+      # return unless user.present?  
+      # can :read, Post, user: user
+
+      # return unless user.admin? 
+      # can :read, Post
     end
   end
   

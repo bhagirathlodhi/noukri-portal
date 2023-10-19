@@ -10,6 +10,9 @@
           <li class="nav-item"><a class="nav-link active" href="<%= jobs_path %>"><i class="bi bi-house-door"></i></a></li>
           <li class="nav-item"><a class="nav-link active" href="<%= requests_path %>">Applicantions</a></li>
           <li class="nav-item"><a class="nav-link active" href=<%= new_job_path %>>Post A Job</a></li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="# %>"><%= current_user.name %></i></a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Account
@@ -23,7 +26,10 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="<%= root_path %>"><i class="bi bi-house-door"></i></a>
             </li>
-            <li class="nav-item"><a class="nav-link active" href="<%= requests_path %>">Applicantions</a></li>
+            <li class="nav-item"><a class="nav-link active" href="<%= requests_path %>">My Applicantions</a></li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"><%= current_user.name %></i></a>
+            </li>
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Account

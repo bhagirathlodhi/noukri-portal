@@ -1,4 +1,4 @@
-
+<div class="show">
   <h3 class="text center">Applicants Details</h3>
   <table class="table table-bordered table-striped">
     <tr>
@@ -10,7 +10,6 @@
       <th>Current salary</th>
       <th>DOB</th>
       <th>Status</th>
-      <th>Resume</th>
       <th>Resume</th>
     </tr>
     
@@ -24,7 +23,6 @@
         <td><%= @request.date_of_birth %></td>
         <td><%= @request.status %></td>
         <% if @request.resume.attached? %>
-          <td><%= link_to "Download PDF", rails_blob_url(@request.resume, disposition: "attachment") %></td>
           <td><iframe src="<%= rails_blob_url(@request.resume) %>" width="100%" height="500"></iframe></td>
         <% end %>
       </tr>
@@ -33,4 +31,4 @@
   <div class="d-grid gap-2 col-2 mx-auto">
     <%=link_to "Back", requests_path ,class:"btn btn-primary"%>
   </div>
-      
+</div> 
