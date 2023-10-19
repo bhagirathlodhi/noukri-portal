@@ -17,7 +17,7 @@
 /* welcome/index */
 
 body {
-  padding-top: 10px;
+  padding-top: 0;
 }
 section {
   overflow: auto;
@@ -74,4 +74,17 @@ error_explanation {
     }
     a{
         text-decoration:none;
+    }
+
+    .div1 {
+      width: 70%;
+      float: left;
+    }
+    .div2 {
+      width: auto;
+      float: right;
+      margin-top: 3px;
+    }
+    #m{
+      margin-bottom: 30px;
     }

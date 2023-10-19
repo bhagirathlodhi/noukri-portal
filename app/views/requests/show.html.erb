@@ -1,34 +1,52 @@
-<div class="show">
-  <h3 class="text center">Applicants Details</h3>
-  <table class="table table-bordered table-striped">
-    <tr>
-      <th>Applicants Name</th>
-      <th>Gender</th>
-      <th>Email</th>
-      <th>Mobile Number</th>
-      <th>Address</th>
-      <th>Current salary</th>
-      <th>DOB</th>
-      <th>Status</th>
-      <th>Resume</th>
-    </tr>
-    
-      <tr>
-        <td><%= @request.name %></td>
-        <td><%= @request.gender %></td>
-        <td><%= @request.email %></td>
-        <td><%= @request.contact_number %></td>
-        <td><%= @request.address %></td>
-        <td><%= @request.currentsalary%></td>
-        <td><%= @request.date_of_birth %></td>
-        <td><%= @request.status %></td>
-        <% if @request.resume.attached? %>
-          <td><iframe src="<%= rails_blob_url(@request.resume) %>" width="100%" height="500"></iframe></td>
-        <% end %>
-      </tr>
-    
-  </table>
-  <div class="d-grid gap-2 col-2 mx-auto">
-    <%=link_to "Back", requests_path ,class:"btn btn-primary"%>
+<div class="container mt-3">
+  <div class="row">
+    <div class="div1">
+      <h3 class="text center">Applicants Details</h3>
+      <table class="table table-bordered table-striped mt-4">
+
+          <tr>
+            <th>Applicants Name</th>
+            <td><%= @request.name %></td>
+          </tr>
+          <tr>
+            <th>Gender</th>
+            <td><%= @request.gender %></td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td><%= @request.email %></td>
+          </tr>
+          <tr>
+            <th>Mobile Number</th>
+            <td><%= @request.contact_number %></td>
+          </tr>
+          <tr>
+            <th>Address</th>
+            <td><%= @request.address %></td>
+          </tr>
+          <tr>
+            <th>Current salary</th>
+            <td><%= @request.currentsalary%></td>
+          </tr>
+          <tr>
+            <th>DOB</th>
+            <td><%= @request.date_of_birth %></td>
+          </tr>
+          <tr>
+            <th>Status</th>
+            <td><%= @request.status %></td>
+          </tr>
+      </table>  
+    </div>
+    <div class="div2">
+      <h3>Resume</h3>
+      <% if @request.resume.attached? %>
+        <iframe src="<%= rails_blob_url(@request.resume) %>" width="auto" height="350"></iframe>
+      <% end %>
+    </div>
   </div>
-</div> 
+</div>
+
+<div id="m" class="d-grid gap-2 col-2 mx-auto">
+  <%=link_to "Back", requests_path ,class:"btn btn-primary"%>
+</div>

@@ -1,8 +1,9 @@
 
 <div class="show">
-  <h3 class="text center">All Application</h3>
+  <h3 class="text center mt-4">All Application</h3>
     <% if @requests.any? %>
-      <table class="table table-bordered table-striped">
+    <% debugger %>
+      <table class="table table-bordered table-striped mt-4">
         <tr>
           <th>Job</th>
           <th>Applicants Name</th>
@@ -15,13 +16,13 @@
           <th>Status</th>
           <th>Details</th>
           <% if current_user.try(:admin?) %>
-            <th>Admin Action</th>
+            <th colspan='2'>Admin Action</th>
           <% end %>
         </tr>
         <% @requests.each do |request| %>
           <% if is_job_requests(request) %> 
             <tr>
-              <th><%= link_to request.job.title, job_path(request.job_id) %></th>
+              <th><h5><%= link_to request.job.title, job_path(request.job_id) %></h5></th>
               <td><%= request.name %></td>
               <td><%= request.gender %></td>
               <td><%= request.email %></td>
@@ -38,7 +39,7 @@
                   <td>
                     <%= link_to "Accept", job_request_accept_path(request.job_id, request), class: "btn btn-success", data: { confirm: "Are you sure you want to Accept this Application?" } %>
                   </td>
-                  <td>
+                  <td class="span2">
                     <%= link_to "Reject", job_request_reject_path(request.job_id, request), method: :put, class: "btn btn-warning", data: { turbo_confirm: "Are you sure you want to reject this Application?" } %>
                   </td>
                 <% end %>
@@ -48,7 +49,7 @@
           <tr>
             <% if is_user_request(request) %>
               <% if cannot? :read, @request%>
-                <td><%= link_to request.job.title, job_path(request.job_id) %></td>
+                <td><h5><%= link_to request.job.title, job_path(request.job_id) %></h5></td>
                 <td><%= request.name %></td>
                 <td><%= request.gender %></td>
                 <td><%= request.email %></td>

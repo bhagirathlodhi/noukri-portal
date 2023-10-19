@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-0">
   <div class="container">
     <a class="navbar-brand" href="<%= root_path %>">Noukri-Portal</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,12 +10,9 @@
           <li class="nav-item"><a class="nav-link active" href="<%= jobs_path %>"><i class="bi bi-house-door"></i></a></li>
           <li class="nav-item"><a class="nav-link active" href="<%= requests_path %>">Applicantions</a></li>
           <li class="nav-item"><a class="nav-link active" href=<%= new_job_path %>>Post A Job</a></li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="# %>"><%= current_user.name %></i></a>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Account
+              <%= current_user.name %>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><%= button_to "Log Out", destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
@@ -27,12 +24,9 @@
               <a class="nav-link active" aria-current="page" href="<%= root_path %>"><i class="bi bi-house-door"></i></a>
             </li>
             <li class="nav-item"><a class="nav-link active" href="<%= requests_path %>">My Applicantions</a></li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"><%= current_user.name %></i></a>
-            </li>
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Account
+              <%= current_user.name %>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><%= button_to "Log Out", destroy_user_session_path, class: "dropdown-item", method: :delete %></li>
