@@ -46,6 +46,11 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_storage_validations (1.0.4)
+      activejob (>= 5.2.0)
+      activemodel (>= 5.2.0)
+      activestorage (>= 5.2.0)
+      activesupport (>= 5.2.0)
     activejob (7.0.8)
       activesupport (= 7.0.8)
       globalid (>= 0.3.6)
@@ -105,7 +110,7 @@ GEM
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
     ffi (1.16.2)
-    ffi (1.16.2-x64-mingw-ucrt)
+    ffi (1.16.2-x64-unknown)
     followability (1.1.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -173,7 +178,7 @@ GEM
     net-smtp (0.4.0)
       net-protocol
     nio4r (2.5.9)
-    nokogiri (1.15.4-x64-mingw-ucrt)
+    nokogiri (1.15.4-x64-unknown)
       racc (~> 1.4)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
@@ -259,7 +264,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.6-x64-mingw-ucrt)
+    sqlite3 (1.6.6-x64-unknown)
     sqlite3 (1.6.6-x86_64-linux)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
@@ -292,10 +297,11 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
-  x64-mingw-ucrt
+  x64-unknown
   x86_64-linux
 
 DEPENDENCIES
+  active_storage_validations (~> 1.0, >= 1.0.4)
   bootsnap
   cancancan
   capybara
@@ -325,7 +331,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 3.2.2p53
+   ruby 3.0.0p0
 
 BUNDLED WITH
    2.4.13
