@@ -3,8 +3,9 @@ class RequestsController < ApplicationController
   before_action :find_request, only: %i[accept reject]
 
   def index
-    @p = Request.ransack(params[:p])
-    @requests = @p.result.page params[:page]
+    # @p = Request.ransack(params[:p])
+    # @requests = @p.result.page params[:page]
+    @requests = Request.all.page params[:page]
   end
 
   def new

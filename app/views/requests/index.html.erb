@@ -36,10 +36,10 @@
                 </td> 
                 <%if request.status != "Rejected" && request.status != "Accept"%>
                   <td>
-                    <%= link_to "Accept", job_request_accept_path(request.job_id, request), class: "btn btn-success", data: { confirm: "Are you sure you want to Accept this Application?" } %>
+                    <%= link_to "Accept", job_request_accept_path(request.job_id, request), class: "btn btn-success", class: "accept-link" %>
                   </td>
                   <td class="span2">
-                    <%= link_to "Reject", job_request_reject_path(request.job_id, request), method: :put, class: "btn btn-warning", data: { turbo_confirm: "Are you sure you want to reject this Application?" } %>
+                    <%= link_to "Reject", job_request_reject_path(request.job_id, request), method: :put, class: "btn btn-warning", class: "delete-link" %>
                   </td>
                 <% end %>
               <% end %>

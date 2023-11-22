@@ -8,5 +8,10 @@ class Job < ApplicationRecord
   validates :salary, presence: true, length: { maximum: 12 }
   validates :location, presence: true, length: { maximum: 56 }
   validates :skills, presence: true, length: { maximum: 120 }
-  
+
+  before_create :job_create_call
+
+  def job_create_call
+    puts "You are going to crate a job"
+  end  
 end
