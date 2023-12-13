@@ -55,8 +55,10 @@ gem "image_processing", "~> 1.2"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem 'rspec', '~> 3.12'
+  gem 'rspec-rails', '~> 6.1'
   gem 'factory_bot_rails', '~> 6.2'
+  gem 'shoulda-matchers', '~> 4.0'
+
 end
 
 group :development do
@@ -84,5 +86,5 @@ gem "followability", "~> 1.1"
 gem 'ransack', '~> 4.0'
 gem 'cancancan'
 gem 'kaminari'
-
+gem 'faker'
 gem 'rails-controller-testing', '~> 0.0.3'
