@@ -14,6 +14,7 @@
                 <h3 class="mb-5 text-uppercase">Applicants registration form</h3>
 
                 <%= form_with model: [@job, @request] do |form| %>
+                  <%= render 'shared/error' %>
                   <div class="row">
                     <div id="form3Example1n" class="col-md-6 mb-4">
                       <div class="form-outline">

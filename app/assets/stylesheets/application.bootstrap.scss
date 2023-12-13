@@ -34,16 +34,16 @@ textarea {
 
 /* error */
 error_explanation {
-  color: red;
+  color: #fff;
   ul {
-  color: red;
+  color: #fff;
   margin: 0 0 30px 0;
   }
   }
   .field_with_errors {
  
   .form-control {
-  color: red;
+  color: #f8f9fa;
   }
   }
 
@@ -70,7 +70,7 @@ error_explanation {
     }
 
     body {
-      background-color:#cfe2ff;
+      background-color:#f8f9fa;
     }
     a{
         text-decoration:none;
@@ -87,4 +87,8 @@ error_explanation {
     }
     #m{
       margin-bottom: 30px;
+    }
+
+    #footer{
+      background-color: cadetblue;
     }

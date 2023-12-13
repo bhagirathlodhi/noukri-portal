@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.2"
+ruby "3.0.0"
 gem 'rolify'
 gem 'letter_opener_web', '~> 2.0'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -86,5 +86,11 @@ gem "followability", "~> 1.1"
 gem 'ransack', '~> 4.0'
 gem 'cancancan'
 gem 'kaminari'
+<<<<<<< HEAD
 gem 'faker'
 gem 'rails-controller-testing', '~> 0.0.3'
+=======
+
+gem 'rails-controller-testing', '~> 0.0.3'
+gem 'active_storage_validations', '~> 1.0', '>= 1.0.4'
+>>>>>>> 14501c53bac24efb506a3c1c4e7732aed7a1cf9f

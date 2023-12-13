@@ -5,7 +5,7 @@
         <div class="formContainer">
           <h2 class="p-2 text-center mb-4 h4" id="formHeading">New Job</h2>
           <%= form_with model: @job do |form| %>
-            <%= render 'shared/error' %>
+            <%= render 'shared/error_messages' %>
 
             <div class="form-group">
               <%= form.label :title %>

@@ -14,9 +14,15 @@ class RequestControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test "should get show" do
-  #   sign_in users(:michael)
-  #   get job_request_path()
-  #   assert_response :success
-  # end
+  test "should get show" do
+    sign_in users(:michael)
+    get job_request_path(@job, @request)
+    assert_response :success
+  end
+  
+  test "accept" do
+    sign_in users(:michael)
+    get job_requests_path(@request)
+    
+  end
 end

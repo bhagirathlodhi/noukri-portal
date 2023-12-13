@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 # db/seeds.rb
-# User.create!(name: "Example", email: "example@gmail.com", password: "123456", password_confirmation: "123456", dob: 12/02/2002, admin: true)
-# User.create!(name: "Virat", email: "virat@gmail.com", password: "123456", password_confirmation: "123456", dob: 12/02/2002, admin: true)
-# User.create!(name: "msd", email: "msd@gmail.com", password: "123456", password_confirmation: "123456", dob: 12/02/2002, admin: true)
+User.create!(name: "Example", email: "example@gmail.com", password: "123456", password_confirmation: "123456", dob: 12/02/2002, admin: true)
+User.create!(name: "Virat", email: "virat@gmail.com", password: "123456", password_confirmation: "123456", dob: 12/02/2002, admin: true)
+User.create!(name: "msd", email: "msd@gmail.com", password: "123456", password_confirmation: "123456", dob: 12/02/2002, admin: true)
 
 
 User.all.each do |user|

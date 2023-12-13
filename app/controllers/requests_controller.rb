@@ -3,8 +3,9 @@ class RequestsController < ApplicationController
   before_action :find_request, only: %i[accept reject]
 
   def index
-    @p = Request.ransack(params[:p])
-    @requests = @p.result.page params[:page]
+    # @p = Request.ransack(params[:p])
+    # @requests = @p.result.page params[:page]
+    @requests = Request.all.page params[:page]
   end
 
   def new
@@ -19,11 +20,12 @@ class RequestsController < ApplicationController
       redirect_to root_path 
     end
   end
+  
   def show
     @request = Request.find(params[:id])
   end
 
-  def accept
+  def accept  
     if @request.status != "accepted" && @request.update(status: :accepted)
       flash[:alert] = "has been Accepted."
       redirect_to request.referrer
